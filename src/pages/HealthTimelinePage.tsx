@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Activity, Moon, Brain, ShieldCheck, AlertTriangle } from "lucide-react";
-import { evaluateAll, getAlerts } from "../engine/evaluate";
+import { evaluateAll } from "../engine/evaluate";
 import type { HealthRecord, Alert } from "../types/health";
 import type { LoggedAssessment } from "../components/wellbeing/AiSymptomAssistant";
 
@@ -30,10 +30,11 @@ export function HealthTimelinePage({ missionTriageLogs = [] }: HealthTimelinePag
     const rawRecords = JSON.parse(localStorage.getItem("astra.records") || "[]");
     setRecords(rawRecords.sort((a: any, b: any) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()));
 
-    // 3. Run the engine on the loaded records
-    evaluateAll(rawRecords, "astro-1");
-    // 4. Load the generated alerts
-    setAlerts(getAlerts());
+    // 3. Run the engine and capture fired alerts directly from the return value
+    const firedAlerts = evaluateAll(rawRecords, "astro-1");
+
+    // 4. Update alerts state from the fired alerts
+    setAlerts(firedAlerts);
   }, []);
 
   // Merge triage ledger entries into the timeline as "triage" source records
