@@ -9,14 +9,26 @@ export function HealthTimelinePage() {
   const [highlightedIds, setHighlightedIds] = useState<string[]>([]);
 
   useEffect(() => {
-    // 1. Load records from localStorage
+    const today = new Date().toISOString();
+
+    // 1. Seed localStorage with mock records when empty
+    if (localStorage.getItem("astra.records") === null || localStorage.getItem("astra.records") === "") {
+      const mockRecords = [
+        { id: "mock-sleep-1", source: "sleep", astronautId: "astro-1", actorId: "astro-1", durationHours: 4.5, timestamp: today },
+        { id: "mock-wellbeing-1", source: "wellbeing", astronautId: "astro-1", actorId: "astro-1", stress: 9, mood: 2, timestamp: today },
+        { id: "mock-symptom-1", source: "symptom", astronautId: "astro-1", actorId: "astro-1", description: "blurry vision and headache", severity: "high", timestamp: today },
+      ];
+      localStorage.setItem("astra.records", JSON.stringify(mockRecords));
+    }
+
+    // 2. Load records from localStorage
     const rawRecords = JSON.parse(localStorage.getItem("astra.records") || "[]");
     setRecords(rawRecords.sort((a: any, b: any) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()));
 
-    // 2. Run the engine on the loaded records
+    // 3. Run the engine on the loaded records
     evaluateAll(rawRecords, "astro-1");
     
-    // 3. Load the generated alerts
+    // 4. Load the generated alerts
     setAlerts(getAlerts());
   }, []);
 
