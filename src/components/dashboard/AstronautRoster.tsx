@@ -27,7 +27,7 @@ export function AstronautRoster({ astronauts, selectedId, onSelect }: AstronautR
               key={a.id}
               onClick={() => onSelect(a.id)}
               aria-label={`Select ${a.name}, ${a.missionRole}`}
-              className={`flex flex-col gap-3 rounded-xl border p-4 min-h-[3rem] transition ${active ? "border-cyan-300/50 bg-cyan-300/[0.06]" : "border-white/10 bg-white/[0.02] active:bg-white/[0.05] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-astra-cyan"}`}
+              className={`flex flex-col gap-3 rounded-xl border p-4 min-h-[3rem] transition ${active ? "border-cyan-300/50 bg-cyan-300/[0.06]" : "border-white/10 bg-white/[0.02] active:bg-white/[0.05] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"}`}
             >
               <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-cyan-300/20 bg-gradient-to-br from-cyan-300/20 to-blue-500/10 text-cyan-200">
                 {a.avatarUrl ? (
@@ -41,7 +41,7 @@ export function AstronautRoster({ astronauts, selectedId, onSelect }: AstronautR
                 <p className="text-[10px] text-slate-500">{a.crewId} · {a.missionRole}</p>
               </div>
               <span className={`rounded-full px-2.5 py-0.5 text-[10px] font-semibold ${active ? "text-cyan-950 bg-cyan-300" : "text-slate-500 bg-white/10"}`}>
-                {a.missionStatus}{a.isSampleData ? " · demo" : ""}
+                {a.missionStatus}
               </span>
             </button>
           );

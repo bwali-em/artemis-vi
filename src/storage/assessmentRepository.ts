@@ -1,6 +1,6 @@
 import type { AssessmentRecord, AssessmentType } from "../types/assessment";
 
-const DB_NAME = "ASTRA_MOTION_DB";
+const DB_NAME = "ARTEMIS_MOTION_DB";
 const STORE_NAME = "assessments";
 const DB_VERSION = 1;
 

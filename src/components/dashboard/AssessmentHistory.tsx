@@ -23,8 +23,8 @@ export function AssessmentHistory({ onSelectRecord }: AssessmentHistoryProps) {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center h-full text-astra-slate">
-        <div className="animate-spin w-6 h-6 border-2 border-astra-cyan border-t-transparent rounded-full" />
+      <div className="flex items-center justify-center h-full text-ARTEMIS-slate">
+        <div className="animate-spin w-6 h-6 border-2 border-ARTEMIS-cyan border-t-transparent rounded-full" />
       </div>
     );
   }
@@ -32,11 +32,11 @@ export function AssessmentHistory({ onSelectRecord }: AssessmentHistoryProps) {
   if (records.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center h-full text-center px-6">
-        <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mb-4 text-astra-slate">
+        <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mb-4 text-ARTEMIS-slate">
           <Clock size={24} />
         </div>
         <h3 className="text-white font-semibold mb-2">No assessments yet</h3>
-        <p className="text-astra-slate text-sm max-w-xs">
+        <p className="text-ARTEMIS-slate text-sm max-w-xs">
           Complete an assessment to track your movement performance history.
         </p>
       </div>
@@ -49,25 +49,25 @@ export function AssessmentHistory({ onSelectRecord }: AssessmentHistoryProps) {
         <div className="flex items-center justify-between mb-6">
           <div>
             <h2 className="text-xl font-bold text-white mb-1">Assessment History</h2>
-            <p className="text-astra-slate text-sm">Track your movement performance over time.</p>
+            <p className="text-ARTEMIS-slate text-sm">Track your movement performance over time.</p>
           </div>
-          <div className="text-xs text-astra-slate">
+          <div className="text-xs text-ARTEMIS-slate">
             {records.length} total assessments
           </div>
         </div>
 
-        <div className="rounded-xl border border-astra-border/50 bg-black/40 overflow-hidden">
+        <div className="rounded-xl border border-ARTEMIS-border/50 bg-black/40 overflow-hidden">
           <div className="space-y-3 md:hidden">
             {records.map((r) => (
               <button
                 key={r.id}
                 onClick={() => onSelectRecord(r)}
                 aria-label={`Assessment ${r.name}, ${new Date(r.date).toLocaleDateString()}, score ${r.score ?? "—"}`}
-                className="flex flex-col gap-3 rounded-lg border border-white/10 bg-white/[0.02] p-4 min-h-[2.75rem] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-astra-cyan active:bg-white/[0.05] transition"
+                className="flex flex-col gap-3 rounded-lg border border-white/10 bg-white/[0.02] p-4 min-h-[2.75rem] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 active:bg-white/[0.05] transition"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded bg-astra-cyan/20 flex items-center justify-center text-astra-cyan text-xs font-bold">
+                    <div className="w-8 h-8 rounded bg-ARTEMIS-cyan/20 flex items-center justify-center text-ARTEMIS-cyan text-xs font-bold">
                       {r.type.charAt(0).toUpperCase()}
                     </div>
                     <div>
@@ -82,7 +82,7 @@ export function AssessmentHistory({ onSelectRecord }: AssessmentHistoryProps) {
                     <p className="text-[10px] text-slate-500">Completed</p>
                   </div>
                 </div>
-                <div className="grid grid-cols-4 gap-2 text-xs text-astra-slate mt-2 border-t border-white/10 pt-2">
+                <div className="grid grid-cols-4 gap-2 text-xs text-ARTEMIS-slate mt-2 border-t border-white/10 pt-2">
                   <div>
                     <p className="text-slate-400">Reps</p>
                     <p className="text-white">{r.metrics.repetitionCount ?? "—"}</p>
@@ -98,20 +98,20 @@ export function AssessmentHistory({ onSelectRecord }: AssessmentHistoryProps) {
                     </p>
                   </div>
                 </div>
-                <ChevronRight size={14} className="ml-auto mt-2 text-astra-slate shrink-0" aria-hidden="true" />
+                <ChevronRight size={14} className="ml-auto mt-2 text-ARTEMIS-slate shrink-0" aria-hidden="true" />
               </button>
             ))}
           </div>
 
           <table className="hidden md:block">
             <thead>
-              <tr className="border-b border-astra-border/50 bg-black/60">
-                <th className="px-4 py-3 text-xs font-mono text-astra-slate uppercase">Date</th>
-                <th className="px-4 py-3 text-xs font-mono text-astra-slate uppercase">Type</th>
-                <th className="px-4 py-3 text-xs font-mono text-astra-slate uppercase">Score</th>
-                <th className="px-4 py-3 text-xs font-mono text-astra-slate uppercase">Reps</th>
-                <th className="px-4 py-3 text-xs font-mono text-astra-slate uppercase text-right">Duration</th>
-                <th className="px-4 py-3 text-xs font-mono text-astra-slate uppercase">Status</th>
+              <tr className="border-b border-ARTEMIS-border/50 bg-black/60">
+                <th className="px-4 py-3 text-xs font-mono text-ARTEMIS-slate uppercase">Date</th>
+                <th className="px-4 py-3 text-xs font-mono text-ARTEMIS-slate uppercase">Type</th>
+                <th className="px-4 py-3 text-xs font-mono text-ARTEMIS-slate uppercase">Score</th>
+                <th className="px-4 py-3 text-xs font-mono text-ARTEMIS-slate uppercase">Reps</th>
+                <th className="px-4 py-3 text-xs font-mono text-ARTEMIS-slate uppercase text-right">Duration</th>
+                <th className="px-4 py-3 text-xs font-mono text-ARTEMIS-slate uppercase">Status</th>
                 <th className="px-4 py-3 text-right" />
               </tr>
             </thead>
@@ -125,14 +125,14 @@ export function AssessmentHistory({ onSelectRecord }: AssessmentHistoryProps) {
                   <td className="px-4 py-4 text-sm text-white">
                     {new Date(r.date).toLocaleDateString()}
                     <br />
-                    <span className="text-xs text-astra-slate">
+                    <span className="text-xs text-ARTEMIS-slate">
                       {new Date(r.date).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
                     </span>
                   </td>
                   <td className="px-4 py-4 text-sm text-white">
                     {r.name}
                     <br />
-                    <span className="text-xs text-astra-slate capitalize">{r.type}</span>
+                    <span className="text-xs text-ARTEMIS-slate capitalize">{r.type}</span>
                   </td>
                   <td className="px-4 py-4 text-sm">
                     <span className={`font-mono font-bold ${scoreColor(r.score)}`}>
@@ -146,10 +146,10 @@ export function AssessmentHistory({ onSelectRecord }: AssessmentHistoryProps) {
                     {((r.duration || 0) / 1000).toFixed(0)}s
                   </td>
                   <td className="px-4 py-4 text-sm">
-                    <span className="text-xs font-mono text-astra-green">Completed</span>
+                    <span className="text-xs font-mono text-ARTEMIS-green">Completed</span>
                   </td>
                   <td className="px-4 py-4 text-right">
-                    <ChevronRight size={14} className="text-astra-slate" aria-hidden="true" />
+                    <ChevronRight size={14} className="text-ARTEMIS-slate" aria-hidden="true" />
                   </td>
                 </tr>
               ))}
@@ -162,9 +162,9 @@ export function AssessmentHistory({ onSelectRecord }: AssessmentHistoryProps) {
 }
 
 function scoreColor(score: number | null): string {
-  if (score === null) return "text-astra-slate";
-  if (score >= 85) return "text-astra-green";
-  if (score >= 70) return "text-astra-cyan";
-  if (score >= 55) return "text-astra-amber";
-  return "text-astra-red";
+  if (score === null) return "text-ARTEMIS-slate";
+  if (score >= 85) return "text-ARTEMIS-green";
+  if (score >= 70) return "text-ARTEMIS-cyan";
+  if (score >= 55) return "text-ARTEMIS-amber";
+  return "text-ARTEMIS-red";
 }

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AssessmentSelector } from "../components/assessment/AssessmentSelector";
-import { AssessmentRunner } from "../components/assessment/AssessmentRunner";
+import { ConversationalAssessmentRunner } from "../components/assessment/ConversationalAssessmentRunner";
 import { ResultsDashboard } from "../components/dashboard/ResultsDashboard";
 import type { AssessmentRecord } from "../types/assessment";
 
@@ -15,7 +15,7 @@ export function AssessmentPage() {
 
   if (view === "assessment" && selectedType) {
     return (
-      <AssessmentRunner
+      <ConversationalAssessmentRunner
         type={selectedType as any}
         onComplete={(rec) => { setRecord(rec); setView("results"); }}
         onExit={() => { setView("selector"); setSelectedType(null); }}
@@ -24,7 +24,7 @@ export function AssessmentPage() {
   }
 
   return (
-    <div className="flex flex-col min-h-[100svh] bg-astra-navy p-8">
+    <div className="flex flex-col min-h-[100svh] bg-ARTEMIS-navy p-8">
       <h2 className="text-2xl font-bold text-white mb-6">Guided Assessment</h2>
       <AssessmentSelector onStart={(type) => { setSelectedType(type); setView("assessment"); }} />
     </div>

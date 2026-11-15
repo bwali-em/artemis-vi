@@ -17,8 +17,8 @@ interface MovementChartsProps {
 export function MovementCharts({ angles }: MovementChartsProps) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div className="rounded-xl border border-astra-border/50 bg-black/40 p-5">
-        <h3 className="text-xs font-mono text-astra-slate uppercase mb-4">Joint Angle Progression</h3>
+      <div className="rounded-xl border border-ARTEMIS-border/50 bg-black/40 p-5">
+        <h3 className="text-xs font-mono text-ARTEMIS-slate uppercase mb-4">Joint Angle Progression</h3>
         <div className="h-48 sm:h-64">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={angles}>
@@ -32,8 +32,8 @@ export function MovementCharts({ angles }: MovementChartsProps) {
           </ResponsiveContainer>
         </div>
       </div>
-      <div className="rounded-xl border border-astra-border/50 bg-black/40 p-5">
-        <h3 className="text-xs font-mono text-astra-slate uppercase mb-4">Repetition Consistency</h3>
+      <div className="rounded-xl border border-ARTEMIS-border/50 bg-black/40 p-5">
+        <h3 className="text-xs font-mono text-ARTEMIS-slate uppercase mb-4">Repetition Consistency</h3>
         <div className="h-48 sm:h-64">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={angles}>

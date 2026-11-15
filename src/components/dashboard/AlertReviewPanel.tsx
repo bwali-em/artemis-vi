@@ -49,7 +49,7 @@ export function AlertReviewPanel({
         aria-label="Alert review"
       >
         <div className="p-5 sm:p-6 border-b border-white/10 flex items-center justify-between">
-          <button onClick={onClose} className="rounded-md min-h-[2.75rem] min-w-[2.75rem] p-2 text-slate-400 active:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-astra-cyan" aria-label="Close alert review">
+          <button onClick={onClose} className="rounded-md min-h-[2.75rem] min-w-[2.75rem] p-2 text-slate-400 active:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300" aria-label="Close alert review">
             <X size={18} />
           </button>
           <h2 className="text-sm font-semibold text-white">Alert review</h2>
@@ -66,9 +66,7 @@ export function AlertReviewPanel({
                 <span className={`rounded px-1.5 py-0.5 text-[9px] uppercase tracking-wider ${config.bg} ${config.color}`}>
                   {alert.status.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}
                 </span>
-                {alert.isSampleData && (
-                  <span className="rounded px-1.5 py-0.5 text-[9px] uppercase tracking-wider border border-white/10 text-slate-500">Sample</span>
-                )}
+                
               </div>
               <p className="text-sm leading-6 text-slate-300">{alert.detail}</p>
               <p className="mt-2 text-[10px] text-slate-500">{alert.time}</p>
@@ -82,7 +80,7 @@ export function AlertReviewPanel({
               className={`w-full min-h-[2.75rem] inline-flex items-center justify-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium transition ${
                 alert.status === "acknowledged" || alert.status === "resolved"
                   ? "border-white/10 text-slate-500"
-                  : "border-astra-cyan text-astra-cyan active:bg-astra-cyan/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-astra-cyan"
+                  : "border-ARTEMIS-cyan text-ARTEMIS-cyan active:bg-ARTEMIS-cyan/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
               }`}
             >
               <Check size={16} />
@@ -94,7 +92,7 @@ export function AlertReviewPanel({
               className={`w-full min-h-[2.75rem] inline-flex items-center justify-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium transition ${
                 alert.status === "resolved"
                   ? "border-white/10 text-slate-500"
-                  : "border-white/20 text-white active:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-astra-cyan"
+                  : "border-white/20 text-white active:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
               }`}
             >
               Mark resolved

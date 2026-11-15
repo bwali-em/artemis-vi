@@ -145,7 +145,7 @@ export function CameraView({
   );
 
   return (
-    <div className="relative w-full h-full bg-astra-navy overflow-hidden">
+    <div className="relative w-full h-full bg-ARTEMIS-navy overflow-hidden">
       <video
         ref={videoRef}
         autoPlay
@@ -155,28 +155,28 @@ export function CameraView({
       />
       <PoseCanvas landmarks={landmarks} width={width} height={height} mirror={mirror} />
       {isLoading && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-astra-navy/90 backdrop-blur-sm z-20">
-          <div className="animate-pulse w-12 h-12 rounded-full border-2 border-astra-cyan border-t-transparent mb-4"></div>
-          <span className="text-astra-cyan text-sm font-mono tracking-widest">Initializing camera & pose model</span>
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-ARTEMIS-navy/90 backdrop-blur-sm z-20">
+          <div className="animate-pulse w-12 h-12 rounded-full border-2 border-ARTEMIS-cyan border-t-transparent mb-4"></div>
+          <span className="text-ARTEMIS-cyan text-sm font-mono tracking-widest">Initializing camera & pose model</span>
         </div>
       )}
       {error && (
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-red-900/90 backdrop-blur z-30 text-center p-6">
-          <div className="text-astra-red text-2xl font-bold mb-2">Camera Error</div>
+          <div className="text-ARTEMIS-red text-2xl font-bold mb-2">Camera Error</div>
           <p className="text-red-100 text-sm max-w-xs">{error}</p>
           <button
             onClick={() => {
               setError(null);
               initRef.current?.();
             }}
-            className="mt-4 min-h-[2.75rem] min-w-[2.75rem] px-4 py-2 text-sm text-astra-cyan active:text-astra-cyan/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-astra-cyan underline"
+            className="mt-4 min-h-[2.75rem] min-w-[2.75rem] px-4 py-2 text-sm text-ARTEMIS-cyan active:text-ARTEMIS-cyan/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 underline"
           >
             Retry
           </button>
         </div>
       )}
       {!videoReady && !isLoading && !error && (
-        <div className="absolute inset-0 flex items-center justify-center text-astra-slate text-sm">
+        <div className="absolute inset-0 flex items-center justify-center text-ARTEMIS-slate text-sm">
           Camera not active
         </div>
       )}

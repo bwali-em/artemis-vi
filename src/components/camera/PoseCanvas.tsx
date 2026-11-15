@@ -7,44 +7,55 @@ interface PoseCanvasProps {
   width?: number;
   height?: number;
   mirror?: boolean;
+  showLabels?: boolean;
 }
 
-export function PoseCanvas({ landmarks, width = 1280, height = 720, mirror = true }: PoseCanvasProps) {
+export function PoseCanvas({
+  landmarks,
+  width = 1280,
+  height = 720,
+  mirror = true,
+  showLabels = true,
+}: PoseCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const rendererRef = useRef<SkeletonRenderer | null>(null);
-  const dimsRef = useRef({ width, height });
+  const landmarksRef = useRef<PoseLandmark[]>(landmarks);
 
-  dimsRef.current = { width, height };
+  landmarksRef.current = landmarks;
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    rendererRef.current = new SkeletonRenderer(canvas, {
-      landmarkColor: "#22d3ee",
-      connectionColor: "rgba(34, 211, 238, 0.45)",
-      landmarkRadius: 4,
-      lineWidth: 2,
-      lowVisibilityColor: "rgba(34, 211, 238, 0.2)",
-      visibilityThreshold: 0.4,
-    });
-    rendererRef.current.resize(canvas.clientWidth, canvas.clientHeight);
-  }, []);
+
+    const renderer = new SkeletonRenderer(canvas, { showLabels });
+    rendererRef.current = renderer;
+
+    const draw = () => {
+      const rect = canvas.getBoundingClientRect();
+      const cssW = rect.width || canvas.clientWidth || width;
+      const cssH = rect.height || canvas.clientHeight || height;
+      renderer.resize(cssW, cssH);
+      renderer.render(landmarksRef.current, width, height, mirror);
+    };
+
+    draw();
+
+    const observer = new ResizeObserver(draw);
+    observer.observe(canvas);
+    window.addEventListener("resize", draw);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", draw);
+      rendererRef.current = null;
+    };
+  }, [width, height, mirror, showLabels]);
 
   useEffect(() => {
     const renderer = rendererRef.current;
-    const canvas = canvasRef.current;
-    if (!renderer || !canvas) return;
+    if (!renderer) return;
+    renderer.render(landmarks, width, height, mirror);
+  }, [landmarks, width, height, mirror]);
 
-    const vw = dimsRef.current.width;
-    const vh = dimsRef.current.height;
-    renderer.render(landmarks, vw, vh);
-  }, [landmarks]);
-
-  return (
-    <canvas
-      ref={canvasRef}
-      className="absolute inset-0 w-full h-full"
-      style={{ transform: mirror ? "scaleX(-1)" : "scaleX(1)" }}
-    />
-  );
+  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />;
 }

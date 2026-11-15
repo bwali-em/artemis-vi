@@ -38,7 +38,6 @@ export interface AstronautProfile {
   missionRole: string;
   missionStatus: string;
   avatarUrl: string | null;
-  isSampleData: boolean;
 }
 
 export interface AlertItem {
@@ -48,5 +47,4 @@ export interface AlertItem {
   severity: "info" | "attention" | "critical";
   status: "new" | "acknowledged" | "under_review" | "resolved";
   time: string;
-  isSampleData?: boolean;
 }

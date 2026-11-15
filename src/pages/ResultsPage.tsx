@@ -27,8 +27,8 @@ export function ResultsPage({ recordId }: ResultsPageProps) {
 
   if (loading) {
     return (
-      <div className="flex flex-col items-center justify-center h-full text-astra-slate">
-        <div className="animate-spin w-6 h-6 border-2 border-astra-cyan border-t-transparent rounded-full" />
+      <div className="flex flex-col items-center justify-center h-full text-ARTEMIS-slate">
+        <div className="animate-spin w-6 h-6 border-2 border-ARTEMIS-cyan border-t-transparent rounded-full" />
       </div>
     );
   }
@@ -36,7 +36,7 @@ export function ResultsPage({ recordId }: ResultsPageProps) {
   if (!record) {
     return (
       <div className="flex flex-col items-center justify-center h-full text-center px-6">
-        <ChevronLeft size={20} className="text-astra-slate mb-2" />
+        <ChevronLeft size={20} className="text-ARTEMIS-slate mb-2" />
         <h3 className="text-white font-semibold mb-2">Assessment not found</h3>
       </div>
     );

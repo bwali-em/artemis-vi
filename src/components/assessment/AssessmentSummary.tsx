@@ -24,9 +24,9 @@ export function AssessmentSummary({ stage, progress }: AssessmentSummaryProps) {
           />
         </svg>
       </div>
-      <p className="text-astra-slate text-sm">{STAGES[stage]}</p>
+      <p className="text-ARTEMIS-slate text-sm">{STAGES[stage]}</p>
       <div className="w-64 mt-6 h-1 bg-white/10 rounded-full overflow-hidden">
-        <div className="h-full bg-astra-cyan transition-all duration-500" style={{ width: `${progress}%` }} />
+        <div className="h-full bg-ARTEMIS-cyan transition-all duration-500" style={{ width: `${progress}%` }} />
       </div>
     </div>
   );

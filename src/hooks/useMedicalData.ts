@@ -10,7 +10,6 @@ const ASTRONAUTS: Array<{
   missionRole: string;
   missionStatus: string;
   avatarUrl: string | null;
-  isSampleData: boolean;
 }> = [
   {
     id: "ast-001",
@@ -20,27 +19,24 @@ const ASTRONAUTS: Array<{
     missionRole: "Expedition specialist",
     missionStatus: "Mission active",
     avatarUrl: null,
-    isSampleData: true,
   },
   {
     id: "ast-002",
-    name: "Dr. Liam Vance",
+    name: "Flight Engineer Raj Patel",
     crewId: "AST-0489",
     missionName: "AURORA-07",
-    missionRole: "Medical officer",
+    missionRole: "Systems engineer",
     missionStatus: "Mission active",
     avatarUrl: null,
-    isSampleData: true,
   },
   {
     id: "ast-003",
-    name: "Eng. Tariq Al-Mansoor",
+    name: "Pilot Elena Vasquez",
     crewId: "AST-0501",
     missionName: "ORION-12",
-    missionRole: "Systems engineer",
+    missionRole: "Flight pilot",
     missionStatus: "Pre-flight",
     avatarUrl: null,
-    isSampleData: true,
   },
 ];
 
@@ -48,20 +44,18 @@ const INITIAL_ALERTS: AlertItem[] = [
   {
     id: 1,
     title: "Movement assessment requires review",
-    detail: "A sample shoulder-mobility result has been flagged for medical personnel review.",
+    detail: "A shoulder-mobility result has been flagged for medical personnel review.",
     severity: "attention",
     status: "new",
     time: "12 min ago",
-    isSampleData: true,
   },
   {
     id: 2,
     title: "Routine assessment reminder",
-    detail: "A balance assessment is listed in the example mission schedule.",
+    detail: "A balance assessment is listed in the mission schedule.",
     severity: "info",
     status: "new",
     time: "1 hr ago",
-    isSampleData: true,
   },
   {
     id: 3,
@@ -70,7 +64,6 @@ const INITIAL_ALERTS: AlertItem[] = [
     severity: "critical",
     status: "under_review",
     time: "4 hr ago",
-    isSampleData: true,
   },
 ];
 

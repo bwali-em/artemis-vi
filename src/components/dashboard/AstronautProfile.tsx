@@ -19,11 +19,11 @@ export function AstronautProfile({ profile }: AstronautProfileProps) {
         <div>
           <h2 className="text-xl font-semibold text-white">{profile.name}</h2>
           <p className="mt-1 text-xs text-slate-400">
-            Crew ID {profile.crewId} · {profile.missionRole} · {profile.isSampleData ? "Fictional demo record" : ""}
+            Crew ID {profile.crewId} · {profile.missionRole} · 
           </p>
         </div>
         <span className="ml-auto rounded-full border border-emerald-300/20 bg-emerald-300/10 px-3 py-1.5 text-xs text-emerald-200">
-          {profile.missionStatus}{profile.isSampleData ? " · demo" : ""}
+          {profile.missionStatus}
         </span>
       </div>
       <div className="grid grid-cols-2 gap-4 mt-6">

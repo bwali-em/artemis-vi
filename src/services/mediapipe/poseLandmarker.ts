@@ -48,7 +48,7 @@ export class PoseLandmarkerService {
     this.initPromise = (async () => {
       try {
         const vision = await FilesetResolver.forVisionTasks(
-          "/wasm"
+          "./wasm"
         );
 
         this.landmarker = await PoseLandmarker.createFromOptions(vision, {
@@ -90,7 +90,7 @@ export class PoseLandmarkerService {
     try {
       const result = this.landmarker.detectForVideo(videoElement, timestampMs);
       if (!result || !result.landmarks || result.landmarks.length === 0) {
-        return null;
+        return { landmarks: [], worldLandmarks: [], timestamp: timestampMs };
       }
 
       const landmarks = result.landmarks[0].map((lm) => ({

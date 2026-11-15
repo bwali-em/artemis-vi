@@ -31,7 +31,7 @@ export function ScoreTrend({ records }: ScoreTrendProps) {
           <p className="text-[10px] uppercase tracking-wider text-slate-500">Score trend</p>
           <p className="mt-1 text-lg font-semibold text-white">{avg}</p>
         </div>
-        <span className={`text-xs font-semibold ${trend === "up" ? "text-astra-green" : trend === "down" ? "text-astra-amber" : "text-astra-slate"}`}>
+        <span className={`text-xs font-semibold ${trend === "up" ? "text-ARTEMIS-green" : trend === "down" ? "text-ARTEMIS-amber" : "text-ARTEMIS-slate"}`}>
           {trend === "up" ? "Improving" : trend === "down" ? "Declining" : "Steady"}
         </span>
       </div>
