@@ -44,13 +44,13 @@ type Tab = "overview" | "alerts" | "profile" | "history" | "user" | "sleep";
 const monitoringIndicators = [
   { label: "Heart rate", value: "68", unit: "bpm", note: "Displayed reading", icon: HeartPulse },
   { label: "Blood oxygen", value: "98", unit: "%", note: "Displayed reading", icon: Activity },
-  { label: "Body temperature", value: "36.8", unit: "Â°C", note: "Displayed reading", icon: Radio },
+  { label: "Body temperature", value: "36.8", unit: "°C", note: "Displayed reading", icon: Radio },
   { label: "Movement score", value: "86", unit: "/100", note: "Pose-estimation metric", icon: ClipboardCheck },
 ];
 
 const defaultAstronautProfile: AstronautProfileType = {
   id: "ast-001",
-  name: "Commander Maya Chen",
+  name: "Innocent Mugwadi ",
   crewId: "AST-0472",
   missionName: "AURORA-07",
   missionRole: "Expedition specialist",
@@ -171,7 +171,7 @@ export function DashboardPage() {
   if (view === "ai-consultation") {
     return (
       <div className="min-h-[100svh] bg-artemis-navy text-white">
-        <AIConsultation />
+        <AIConsultation onBack={() => setView("dashboard")} />
       </div>
     );
   }
@@ -235,7 +235,7 @@ export function DashboardPage() {
                 <section className="flex flex-col justify-between gap-5 xl:flex-row xl:items-end">
                   <div>
                     
-                    <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">Good day, Medical Team</h1>
+                    <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">Hello there.</h1>
                     <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-400">Monitor astronaut wellbeing, review movement assessments and follow up on items requiring attention.</p>
                   </div>
                   <button onClick={() => setView("selector")} className="inline-flex items-center justify-center gap-2 self-start min-h-[2.75rem] rounded-lg bg-cyan-400 px-5 py-3 text-sm font-bold text-slate-950 shadow-lg shadow-cyan-950/30 active:bg-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 transition xl:self-auto">

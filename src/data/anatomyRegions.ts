@@ -223,7 +223,7 @@ export const STATUS_COLORS: Record<string, string> = {
 };
 
 export const RATING_COLORS: Record<string, string> = {
-  green: "#95C11E",
+  green: "#1B4D3E",
   yellow: "#F2C811",
   orange: "#F08A1E",
   red: "#E03131",

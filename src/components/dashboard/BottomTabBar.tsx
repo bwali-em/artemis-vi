@@ -1,4 +1,4 @@
-﻿import { Activity, Bell, Clock3, UserCog, Moon } from "lucide-react";
+import { Activity, Bell, Clock3, UserCog, Moon } from "lucide-react";
 
 interface BottomTabBarProps {
   active: "overview" | "alerts" | "profile" | "history" | "user" | "sleep";
@@ -51,3 +51,4 @@ export function BottomTabBar({ active, onChange, alertsCount }: BottomTabBarProp
     </nav>
   );
 }
+export default BottomTabBar;

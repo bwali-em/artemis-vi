@@ -13,7 +13,7 @@ const ASTRONAUTS: Array<{
 }> = [
   {
     id: "ast-001",
-    name: "Commander Maya Chen",
+    name: "Innocent Mugwadi ",
     crewId: "AST-0472",
     missionName: "AURORA-07",
     missionRole: "Expedition specialist",
@@ -22,7 +22,7 @@ const ASTRONAUTS: Array<{
   },
   {
     id: "ast-002",
-    name: "Flight Engineer Raj Patel",
+    name: "Flight Engineer Muss ",
     crewId: "AST-0489",
     missionName: "AURORA-07",
     missionRole: "Systems engineer",
@@ -31,7 +31,7 @@ const ASTRONAUTS: Array<{
   },
   {
     id: "ast-003",
-    name: "Pilot Elena Vasquez",
+    name: "Pilot Javan",
     crewId: "AST-0501",
     missionName: "ORION-12",
     missionRole: "Flight pilot",

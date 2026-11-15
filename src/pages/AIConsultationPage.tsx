@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Mic, MicOff, X, Volume2, VolumeX, CheckCircle2, AlertCircle, Stethoscope, Loader2, Mic2, Brain, RotateCcw } from "lucide-react";
+import { Mic, MicOff, X, Volume2, VolumeX, CheckCircle2, AlertCircle, Stethoscope, Loader2, Mic2, Brain, RotateCcw, ArrowLeft } from "lucide-react";
 import { useGeminiLive } from "../hooks/useGeminiLive";
 import { useVoiceInput } from "../hooks/useVoiceInput";
 import { useMedicalData } from "../hooks/useMedicalData";
@@ -66,7 +66,7 @@ const QUESTIONS = [
   "Have you noticed any fever or chills?",
 ];
 
-export function AIConsultation() {
+export function AIConsultation({ onBack }: { onBack?: () => void }) {
   const { selectedAstronautId } = useMedicalData();
   
   const [state, setState] = useState<ConsultationState>({
@@ -326,6 +326,14 @@ export function AIConsultation() {
               <h1 className="text-xl font-semibold text-white">ARTEMIS HEALTH Consultation</h1>
             </div>
           </div>
+          {onBack && (
+            <button
+              onClick={onBack}
+              className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 min-h-[2.75rem] px-4 py-2 text-xs font-medium text-cyan-300 active:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 transition"
+            >
+              <ArrowLeft size={16} /> Back to dashboard
+            </button>
+          )}
         </header>
         <main className="flex-1 flex items-center justify-center p-8">
           <div className="text-center max-w-md">
@@ -365,6 +373,15 @@ export function AIConsultation() {
       {/* Header */}
       <header className="border-b border-white/10 bg-black/40 px-5 py-3 sm:px-8 flex items-center justify-between">
         <div className="flex items-center gap-3">
+          {onBack && (
+            <button
+              onClick={onBack}
+              className="rounded-lg border border-white/10 min-h-[2.75rem] min-w-[2.75rem] px-2 text-cyan-300 active:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 transition"
+              aria-label="Back to dashboard"
+            >
+              <ArrowLeft size={18} />
+            </button>
+          )}
           <button onClick={endConsultation} className="rounded-lg border border-white/10 min-h-[2.75rem] min-w-[2.75rem] px-3 py-2 text-sm text-cyan-300 active:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 transition">
             <X size={20} />
           </button>
